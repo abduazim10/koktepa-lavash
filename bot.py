@@ -10,8 +10,8 @@ from aiogram.dispatcher import FSMContext
 
 logging.basicConfig(level=logging.INFO)
 
-bot = Bot(token=API_TOKEN)
-dp = Dispatcher(bot=bot, storage=MemoryStorage(), proxy='http://proxy.server:3128')
+bot = Bot(token=API_TOKEN, proxy='http://proxy.server:3128')
+dp = Dispatcher(bot=bot, storage=MemoryStorage())
 
 cart = []
 class TaskStates(StatesGroup):
