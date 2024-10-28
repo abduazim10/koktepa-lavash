@@ -1,24 +1,32 @@
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
 
-start_keyboards = ReplyKeyboardMarkup(resize_keyboard=True)
-start_keyboards.add(KeyboardButton('🍴 Menu'))
-start_keyboards.add(KeyboardButton('🛍 Mening zakazlarim'))
-start_keyboards.add(KeyboardButton('✍️ Ariza qoldirish'), KeyboardButton('⚙️ Sozlamalar'))
 
+
+start_keyboards = ReplyKeyboardMarkup(resize_keyboard=True).add(
+    KeyboardButton('Menu 🍴'),
+    KeyboardButton('🛍 Savat')
+).add(
+    KeyboardButton('✍️ Ariza qoldirish'), 
+    KeyboardButton('⚙️ Sozlamalar')
+)
+
+
+    
 contact = ReplyKeyboardMarkup(resize_keyboard=True).add(KeyboardButton('Telefon raqam jonatish', request_contact=True))
 
 menu_keyboards = ReplyKeyboardMarkup(resize_keyboard=True)
 menu_keyboards.add(KeyboardButton('🌯 Lavash'), KeyboardButton('🌭 Hot dog')),
-menu_keyboards.add(KeyboardButton('🌮 Taco'), KeyboardButton('🍔 Burger')),
-menu_keyboards.add(KeyboardButton('🍕 Pizza'), KeyboardButton('🥩 Steyk')),
-menu_keyboards.add(KeyboardButton('🍦 Muzqaymoq'), KeyboardButton('🎂 Tort')),
-menu_keyboards.add(KeyboardButton('🍟 Kartoshka Fri'))
+menu_keyboards.add(KeyboardButton('🍔 Burger'),KeyboardButton('🍕 Pizza')),
+menu_keyboards.add(KeyboardButton('🍟 Sneklar'))
 menu_keyboards.add(KeyboardButton('🔙 Bosh sahifa'))
 
-# lavash_keyboards = ReplyKeyboardMarkup(resize_keyboard=True)
-# lavash_keyboards.add(KeyboardButton('mini lavash'), KeyboardButton('big lavash')),
-# lavash_keyboards.add(KeyboardButton('mini lavash + cheese'), KeyboardButton('big lavash + cheese')),
-# lavash_keyboards.add(KeyboardButton('🔙 Orqaga'))
+zakaz_keyboards = ReplyKeyboardMarkup(resize_keyboard=True, keyboard=[
+    [
+        KeyboardButton('Ha'),
+        KeyboardButton('Yoq'),
+    ]
+])
+
 
 buy_product = InlineKeyboardMarkup(row_width=2, inline_keyboard=[
     [
@@ -50,13 +58,15 @@ hot_dog_keyboards = ReplyKeyboardMarkup(resize_keyboard=True, row_width=2, keybo
         KeyboardButton('🔙 Orqaga'),
     ]
 ])
+location_keyboards = ReplyKeyboardMarkup(resize_keyboard=True, row_width=2, keyboard=[
+    [
+        KeyboardButton(text="Lokatsiya Jonatish 📍",  request_location=True)
+    ]
+])
 
-taco_keyboards = ReplyKeyboardMarkup(resize_keyboard=True, row_width=2, keyboard=[
+phone_keyboard = ReplyKeyboardMarkup(resize_keyboard=True, row_width=2, keyboard=[
     [
-        KeyboardButton('mini taco'), KeyboardButton('big taco'),
-    ],
-    [
-        KeyboardButton('🔙 Orqaga'),
+        KeyboardButton(text="Telefon Raqam Jonatish",  request_contact=True)
     ]
 ])
 
@@ -71,10 +81,21 @@ burger_keyboards = ReplyKeyboardMarkup(resize_keyboard=True, row_width=2, keyboa
 
 pizza_keyboards = ReplyKeyboardMarkup(resize_keyboard=True, row_width=2, keyboard=[
     [
-        KeyboardButton('pipperoni pizza'), KeyboardButton('margarita pizza'), KeyboardButton('4 pizza'),
+        KeyboardButton('pepperoni pizza'), KeyboardButton('margarita pizza'), KeyboardButton('4 pizza'),
     ],
     [
         KeyboardButton('qazili pizza'), KeyboardButton('qo\'ziqorinli pizza')
+    ],
+    [
+        KeyboardButton('🔙 Orqaga'),
+    ]
+])
+snek_keyboards = ReplyKeyboardMarkup(resize_keyboard=True, row_width=2, keyboard=[
+    [
+        KeyboardButton('Kichik Fri'), KeyboardButton('Ortancha Fri'), KeyboardButton('Katta Fri'),
+    ],
+    [
+        KeyboardButton('Naggets 5'), KeyboardButton('Naggets 8'), KeyboardButton('Naggets 15'),
     ],
     [
         KeyboardButton('🔙 Orqaga'),
