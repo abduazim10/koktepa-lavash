@@ -13,6 +13,9 @@ logging.basicConfig(level=logging.INFO)
 bot = Bot(token=API_TOKEN, proxy='http://proxy.server:3128')
 dp = Dispatcher(bot=bot, storage=MemoryStorage())
 
+
+
+
 cart = []
 class TaskStates(StatesGroup):
     status = State()
